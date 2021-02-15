@@ -48,6 +48,8 @@ public class Program {
 		
 		System.out.println("Valor total dos produtos: " + String.format("%.2f",loja.calculaPatrimonio()));
 		
+		loja.salvarDados();
+		
 	}
 
 }

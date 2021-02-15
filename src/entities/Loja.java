@@ -1,6 +1,9 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import data.saveData;
 
 public class Loja {
 	
@@ -94,6 +97,39 @@ public class Loja {
 		
 		return somaTotal;
 		
+	}
+	
+	public void salvarDados() {
+		
+		saveData salvar = new saveData();
+		
+		List<String> dadosLivros = new ArrayList<String>();
+		List<String> dadosVideoGames = new ArrayList<String>();
+		
+		for (Livro l : livros) {
+			
+			String line = l.getNome() +
+					"-" + l.getAutor() +
+					"-" + l.getPreco() +
+					"-" + l.getTema() +
+					"-" + l.getQuantPaginas() + "-" + l.getQuantidade();
+			
+			dadosLivros.add(line);
+		}
+		
+		for (VideoGame v : videoGames) {
+			
+			String line = v.getNome() +
+					"-" + v.getModelo() +
+					"-" + v.getMarca() +
+					"-" + v.getPreco() + 
+					"-" + v.getQuantidade();
+			
+			dadosVideoGames.add(line);
+		}
+		
+		salvar.gravadorDeDados(dadosLivros, "produtos.txt");
+		salvar.gravadorDeDados(dadosVideoGames, "videoGames.txt");
 	}
 	
 	
